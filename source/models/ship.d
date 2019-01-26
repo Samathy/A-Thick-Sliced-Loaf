@@ -106,3 +106,13 @@ void init(sdl_window window, int x, int y)
     ship.addComponent(right_middle_jet_1);
 
 }
+
+void moveLeft(int value)
+{
+    ship.setx(ship.getx() - value);
+}
+
+void moveRight(int value)
+{
+    ship.setx(ship.getx() + value);
+}
