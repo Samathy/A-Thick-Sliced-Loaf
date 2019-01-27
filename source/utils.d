@@ -16,7 +16,7 @@ model_container[] generatePlanets(sdl_window window, int planetCount)
 
     for (int i; i < planetCount; i++)
     {
-        planets ~= atsl.models.planet.factory(window, uniform(20, 980, rnd), y);
+        planets ~= atsl.models.planet.factory(window, uniform(20 + 30, 980 - 30, rnd), y);
 
     }
 
