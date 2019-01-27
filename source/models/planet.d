@@ -30,7 +30,7 @@ model_container factory(sdl_window window, int x, int y)
 {
     model_container nplanet = new model_container("planet", x, y, 2);
 
-    line_circle circle = new line_circle(0, 0, 30, white, window.get_renderer());
+    line_circle circle = new line_circle(0, 0, 50, white, window.get_renderer());
 
     model_component circle_c = new model_component(circle, function(int x, int y,
             renderable_abstract_object renderable) {

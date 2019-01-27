@@ -17,6 +17,7 @@ import primordial.models.container;
 
 import atsl.models.ship;
 import atsl.models.planet;
+import atsl.models.saucer;
 import atsl.scenes.introduction;
 import atsl.scenes.game_over;
 import atsl.utils;
@@ -42,6 +43,7 @@ int main()
     Duration difference;
 
     model_container[] planets;
+    model_container[] saucers;
     sdl_window main_window;
 
     primordial.init.primordial_init(true, true);
@@ -94,6 +96,11 @@ int main()
                 planet.sety(planet.gety() + 20);
             }
 
+            foreach (saucer; saucers)
+            {
+                saucer.sety(saucer.gety() + 20);
+            }
+
         }
 
         if ((timeSinceLastPlanetGen - MonoTime.currTime()) <= msecs(-160))
@@ -143,6 +150,30 @@ int main()
             }
         }
 
+        foreach (int i, ref saucer; saucers)
+        {
+            if (saucer.gety() >= 980)
+            {
+                saucers = saucers.remove(i);
+            }
+
+            if (saucer.gety() >= 800 - 30 && saucer.gety() <= 800 + 30
+                    && saucer.getx() >= (atsl.models.ship.ship.getx() - 60)
+                    && saucer.getx() <= (atsl.models.ship.ship.getx() + 60))
+            {
+
+                loadRandomEncounter(main_window, keyboard);
+            }
+
+        }
+
+        /* Spawn a random saucer */
+
+        if (uniform(0, 5, rnd) == 3 && saucers.length < 1)
+        {
+            saucers ~= atsl.models.saucer.factory(main_window, uniform(20 + 30, 980 - 30, rnd), 30);
+        }
+
         if (gameOver == true)
         {
             writeln("Game Over");
@@ -158,6 +189,11 @@ int main()
         foreach (p; planets)
         {
             p.render();
+        }
+
+        foreach (s; saucers)
+        {
+            s.render();
         }
 
         main_window.update();

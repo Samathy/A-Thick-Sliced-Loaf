@@ -4,8 +4,10 @@ import std.random;
 
 import primordial.sdl.display;
 import primordial.models.container;
+import primordial.input.keyboard;
 
 import atsl.models.planet;
+import atsl.scenes.encounters.encounter_one;
 
 model_container[] generatePlanets(sdl_window window, int planetCount)
 {
@@ -21,4 +23,29 @@ model_container[] generatePlanets(sdl_window window, int planetCount)
     }
 
     return planets;
+}
+
+void loadRandomEncounter(sdl_window main_window, sdl_event_listener keyboard)
+{
+    auto rnd = new Random(unpredictableSeed);
+    int encounter = uniform(1, 2, rnd);
+
+    encounter = 1;
+
+    switch (encounter)
+    {
+    case 1:
+        {
+            atsl.scenes.encounters.encounter_one.init(main_window, keyboard);
+        }
+    case 2:
+        {
+            //       atsl.scenes.encounter_two.run(main_window, keyboard);
+        }
+    default:
+        {
+            //      atsl.scenes.encounter_one.run(main_window, keyboard);
+        }
+    }
+
 }
