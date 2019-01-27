@@ -1,6 +1,11 @@
 A Thick Sliced Loaf
 ===================
 
+In A Thick Sliced Loaf is a game made for Global Game Jam 2019.
+
+The player must navigate space filled with planets and aliens as they search
+for a new home.
+
 
 Requirements
 ------------------
