@@ -167,5 +167,16 @@ int main()
         difference = framestart - frameend;
     }
 
+    keyboard.sendShutdown();
+
+    foreach (planet; planets)
+    {
+        destroy(planet);
+    }
+
+    destroy(atsl.models.ship.ship);
+
+    destroy(main_window);
+
     return 0;
 }
