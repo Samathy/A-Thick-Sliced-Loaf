@@ -1,0 +1,17 @@
+{
+	"description": "A game, for GGJ 2019",
+	"dependencies": {
+		"derelict-sdl2": "~>2.1.4",
+        "blerp":"*",
+        "primordial":"*"
+
+	},
+    "targetType": "executable",
+    "targetPath":"build",
+	"authors": [
+		"samathy"
+	],
+	"copyright": "Copyright © 2019, samathy",
+	"license": "MIT",
+	"name": "a-thick-sliced-loaf"
+}
