@@ -10,6 +10,7 @@ import primordial.colors : black;
 import primordial.input.keyboard;
 
 import atsl.models.ship;
+import atsl.scenes.introduction;
 
 version (unittest) import blerp;
 
@@ -26,6 +27,8 @@ int main()
     sdl_event_listener keyboard = new sdl_event_listener(main_window);
 
     keyboard.listen();
+
+    doInitialIntroduction(main_window, keyboard);
 
     atsl.models.ship.init(main_window, 320, 800);
 
